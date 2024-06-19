@@ -82,7 +82,7 @@
             font-weight: 700;
             text-transform: uppercase;
             padding: 14px;
-            width: 25%;
+            width: 100%;
             border: none;
             cursor: pointer;
         }
@@ -95,6 +95,12 @@
             background-color: transparent;
             border: 2px solid var(--light-text);
         }
+    }
+}
+
+@media (min-width: 1205px) {
+    .form-group .btn-wrapper .btn {
+        width: 25%;
     }
 }
 
