@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Output } from '@angular/core'
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { GetUnitsService } from '../../services/get-units.service'
 import { ILocations } from '../../interfaces/location.interface'
@@ -12,6 +12,9 @@ import { FilterUnitsService } from '../../services/filter-units.service'
   styleUrl: './forms.component.scss',
 })
 export class FormsComponent {
+
+  @Output() submitEvent = new EventEmitter();
+  
   results: ILocations[] = []
   filteredResults: ILocations[] = []
   formGroup!: FormGroup
@@ -40,6 +43,8 @@ export class FormsComponent {
       this.formGroup.value.hour,
     )
     this.unitService.setFilteredUnits(this.filteredResults)
+
+    this.submitEvent.emit()
   }
 
   onClear(): void {
