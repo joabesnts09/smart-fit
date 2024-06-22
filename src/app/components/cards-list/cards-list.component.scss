@@ -17,3 +17,10 @@
         max-width: 80%;
     }
 }
+
+@media (min-width: 1120px) {
+    .card-list {
+       justify-content: space-between;
+       gap: 24px;
+    }
+}
